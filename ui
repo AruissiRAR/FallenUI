@@ -2886,12 +2886,6 @@ function library:Toggle()
         self.opening = true
         self.Playerlist.object.Visible = self.Playerlist.toggled and not self.open or false
 
-        if window.Visible then
-            print'yes!'
-            else
-            print'no!'
-        end
-
         for window, types in next, library.windows do
             window.Visible = types.Visible and not self.open or false;
         end
@@ -2921,8 +2915,10 @@ function library:Toggle()
             services.ContextActionService:UnbindAction("disable_keyboard_input")
 
             self.holder.Visible = not self.holder.Visible
+            print("UI IS CLOSED!")
         else
             self.open = true
+            print("UI IS OPEN!")
             self.holder.Visible = not self.holder.Visible
 
             for _, object in next, self.objects do
